@@ -1,0 +1,140 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 10px
+  font-family: 'Montserrat', sans-serif; // 'Montserrat', 'Roboto';
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background: #164961 url(../img/bg.jpg) no-repeat center / cover;
+  color: #fff;
+  overflow: hidden;
+  font-size: 1.5rem;
+
+  h1 {
+    margin: 20px 0;
+    font-size: 4rem;
+    font-weight: bolder;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    // height: 310px;
+    // width: 310px;
+    height: 250px;
+    width: 250px;
+    position: relative;
+
+    .circle {
+      background-color: #081b24;
+      // height: 290px;
+      // width: 290px;
+      height: 230px;
+      width: 230px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 1.8rem;
+      letter-spacing: 1.2px;
+    }
+
+    .pointer-container {
+      position: absolute;
+      top: -30px;
+      // left: 145px;
+      left: 115px;
+      width: 20px;
+      // height is half of circle height - 310 / 2 = 155 + 30px (top) = 185px
+      // height: 185px;
+      height: 155px;
+      animation: rotate 9.5s linear forwards infinite;
+      transform-origin: bottom center;
+
+      .pointer {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: block;
+      }
+    }
+
+    .gradient-circle {
+      background: conic-gradient(
+        hsl(214, 63%, 70%) 0%,
+        hsl(214, 63%, 55%) 23%,
+        #fff 23%,
+        #fff 60%,
+        hsl(214, 63%, 50%) 60%,
+        hsl(214, 63%, 20%) 100%
+      );
+
+      // height: 310px;
+      // width: 310px;
+      height: 250px;
+      width: 250px;
+      z-index: -2;
+      border-radius: 50%;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+
+    &.grow {
+      animation: grow 2.2s linear forwards;
+    }
+
+    &.shrink {
+      animation: shrink 3.8s linear forwards;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
